@@ -18,7 +18,7 @@ def ask_chatgpt_education(conversation):
 
 # Streamlit UI
 def main():
-     st.title("Educational ChatGPT Bot")
+    st.title("Educational ChatGPT Bot")
 
     # Initialize conversation with a system message
     conversation = [

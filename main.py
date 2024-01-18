@@ -18,7 +18,7 @@ def ask_chatgpt_education(question):
         },
     ],
   )
- return response.choices[0].text.strip()
+ return response.choices[0].message.content
 
 # Streamlit UI
 def main():

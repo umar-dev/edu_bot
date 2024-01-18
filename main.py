@@ -31,6 +31,7 @@ def main():
     # Add user message to conversation when the user submits
     if st.button("Send"):
         if user_input:
+            # Add user message to conversation
             conversation.append({"role": "user", "content": user_input})
 
             # Call the OpenAI function to get the answer
@@ -38,6 +39,10 @@ def main():
 
             # Add assistant's reply to conversation
             conversation.append({"role": "assistant", "content": answer})
+
+    # Display conversation history
+    for message in conversation:
+        st.text(f"{message['role'].capitalize()}: {message['content']}")
 
 if __name__ == "__main__":
     main()

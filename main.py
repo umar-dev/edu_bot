@@ -9,14 +9,16 @@ openai.api_key = os.environ.get("OPENAI_API_KEY", "")
 # ChatGPT function with an education-related prompt
 def ask_chatgpt_education(question):
     prompt = f"Education: {question}"
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=150,
-        n=1,
-        stop=None
-    )
-    return response.choices[0].text.strip()
+    response =  openai.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {
+            "role": "user",
+            "content": question,
+        },
+    ],
+  )
+ return response.choices[0].text.strip()
 
 # Streamlit UI
 def main():
